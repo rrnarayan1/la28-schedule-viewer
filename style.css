@@ -1,0 +1,108 @@
+/* 1. LIGHT MODE (Default) */
+:root {
+    --bg-color: #ffffff;
+    --container-bg: #f8f9fa;
+    --text-primary: #212529;
+    --text-secondary: #6c757d;
+    --accent-color: #004a99;
+    --accent-hover: #003366;
+    --border-color: #dee2e6;
+    --row-hover: #f1f3f5;
+    --input-bg: #ffffff;
+}
+
+/* 2. DARK MODE (Only if system/browser is set to dark) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #121212;
+        --container-bg: #1e1e1e;
+        --text-primary: #e0e0e0;
+        --text-secondary: #b0b0b0;
+        --accent-color: #1a73e8;
+        --accent-hover: #1557b0;
+        --border-color: #333333;
+        --row-hover: #2a2a2a;
+        --input-bg: #2c2c2c;
+    }
+}
+
+body { 
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+    margin: 20px; 
+    background-color: var(--bg-color); 
+    color: var(--text-primary); 
+}
+
+h1 { 
+    color: var(--text-primary)
+}
+
+.table-wrapper { 
+    overflow-x: auto; 
+    background-color: var(--container-bg); /* Wrapper background */
+    border-radius: 8px; 
+    box-shadow: 0 2px 8px var(--border-color); 
+}
+
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    min-width: 600px;
+    background-color: var(--container-bg); /* Table background */
+    box-shadow: 0 1px 3px var(--border-color);
+}
+
+th, td { 
+    padding: 14px; 
+    text-align: left; 
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-primary); /* Ensure cell text is light */
+}
+
+/* Force all rows to be dark */
+tbody tr {
+    background-color: var(--container-bg);
+}
+
+th { 
+    background-color: var(--accent-color); 
+    color: white; 
+    cursor: pointer; 
+}
+
+/* Highlight effect on hover */
+tbody tr:hover { 
+    background-color: var(--row-hover) !important; 
+}
+
+.no-results { padding: 20px; text-align: center; color: var(--text-secondary); }
+
+input[type="text"] { 
+    padding: 12px 15px; 
+    width: 100%; 
+    max-width: 400px; 
+    background-color: var(--container-bg);
+    color: var(--text-primary);            
+    border: 1px solid #444444; /* Subtle border */
+    border-radius: 6px; 
+    box-sizing: border-box; 
+    font-size: 16px;           /* Prevents zoom on mobile */
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+}
+
+/* Styling the placeholder text */
+input[type="text"]::placeholder { 
+    color: #888888; 
+}
+
+/* Visual feedback when the user clicks the box */
+input[type="text"]:focus { 
+    border-color: var(--accent-color); 
+    box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.2); 
+    background-color: var(--container-bg);
+}
+
+.controls { margin-bottom: 20px; display: flex; gap: 10px; align-items: center; }
+
+.sort-icon::after { content: ' \21C5'; font-size: 0.8em; }
